@@ -1,5 +1,4 @@
-var citySearchEl = document.querySelector("#city-search");
-var cityInputEl = document.querySelector("#city-input");
+var cityInputEl = document.querySelector("#searchInput");
 var cityName = {};
 
 var formSubmitHandler = function(event) {
