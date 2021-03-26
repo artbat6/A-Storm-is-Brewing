@@ -6,10 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Document</title>
+    <title>A Storm is Brewing</title>
 </head>
 <body>
-    
+    <header class="header">
+        <h1>Brewery</h1>
+    </header>
+    <div class="row">
+        <h1>Search</h1>
+    </div>
+    <div class="row">
+        <div class="col s3">
+        <input id= 'searchInput' type="text" class="searchInput" placeholder="Austin">
+        <button type="submit" class="searchBtn">
+        <i class="fas fa-search"></i>
+        </button>
+        </div>
+    </div>
+    <div class="historyItems"></div>
+    <div class="col s3">
+        <div class="forecast">
+            <div class="row">
+                <h1 class="cityName">City Name</h1>
+                <h1 class="currentDate"></h1>
+                <img class="weatherIcon"></img>
+            </div>
+            <div class="row">
+                <p class="temp">Temperature:</p>
+            </div>
+        </div>
+    </div>
+
 
 
 
