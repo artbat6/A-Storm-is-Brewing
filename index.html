@@ -10,37 +10,69 @@
 </head>
 <body>
     <header class="header">
-        <h1>Brewery</h1>
+        <h1>A Storm is Brewing</h1>
     </header>
     <div class="row">
-        <h1>Search</h1>
-    </div>
-    <div class="row">
-        <div class="col s3">
-        <input id= 'searchInput' type="text" class="searchInput" placeholder="Austin">
-        <button type="submit" class="searchBtn">
-        <i class="fas fa-search"></i>
+        <h1>Search City</h1>
+        <div class= 'col s12 m4 l3'>
+        <form class="citySearch"><input type="text" class="searchInput" placeholder="City">
+        <button class="btn waves-effect waves-light" type="submit" class="searchBtn" name="action">Submit
         </button>
+        </form>
         </div>
-    </div>
-    <div class="historyItems"></div>
-    <div class="col s3">
-        <div class="forecast">
-            <div class="row">
-                <h1 class="cityName">City Name</h1>
-                <h1 class="currentDate"></h1>
-                <img class="weatherIcon"></img>
-            </div>
-            <div class="row">
-                <p class="temp">Temperature:</p>
-            </div>
-        </div>
-    </div>
-
-
-
-
     
+        <div class="col s12 m4 l5">
+        <div class="forecast">
+            <h5 class="right-align" class="cityName">City Name:</h5>
+        </div>
+        </div>
+        <div class="col">
+            <h5 class="right-align" class="temp">90˚</h5>
+        </div>
+        </div>
+    </div> 
+    <div class="row">
+        <div class="col s3 historyContainer"> 
+            <div class="historyCard">
+                <h1>Search History</h1>
+            </div>
+        </div>
+        <div class="col s9 resultsContainer">
+            <div class="col s12">    
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text" class="cardInfo">
+                        <span class="card-title">Brewery Name</span>
+                        <p>Description of Brewery?</p>
+                    </div>
+                        <div class="card-action">
+                        <a href="#">Brewery Link?</a>
+                        </div>
+                </div>
+            </div>
+            <div class="col s12">    
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text" class="cardInfo">
+                        <span class="card-title">Brewery Name</span>
+                        <p>Description of Brewery?</p>
+                    </div>
+                        <div class="card-action">
+                        <a href="#">Brewery Link?</a>
+                        </div>
+                </div>
+            </div>
+            <div class="col s12">    
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text" class="cardInfo">
+                        <span class="card-title">Brewery Name</span>
+                        <p>Description of Brewery?</p>
+                    </div>
+                        <div class="card-action">
+                        <a href="#">Brewery Link?</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
