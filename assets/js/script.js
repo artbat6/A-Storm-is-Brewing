@@ -102,7 +102,6 @@ var createBreweriesArray = function (breweryData) {
     }
     i++;
   }
-  console.log(breweriesArray);
   return breweriesArray;
 };
 
