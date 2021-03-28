@@ -1,3 +1,4 @@
+var citySearchEl = document.querySelector("#citySearch");
 var cityInputEl = document.querySelector("#searchInput");
 var cityName = {};
 
