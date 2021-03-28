@@ -1,4 +1,5 @@
 var cityInputEl = document.querySelector("#searchInput");
+var citySearchEl = document.querySelector("#citySearch");
 var cityName = {};
 
 var formSubmitHandler = function(event) {
@@ -7,6 +8,7 @@ var formSubmitHandler = function(event) {
   
     // get value from input element
     cityName = cityInputEl.value.trim();
+    console.log(cityName);
   
     if (cityName) {
         getWeather(cityName);
