@@ -8,7 +8,9 @@ var formSubmitHandler = function(event) {
   
     // get value from input element
     cityName = cityInputEl.value.trim();
-    console.log(cityName);
+    // put submitted name into #cityName field
+    var cityNameEl = document.querySelector("#cityName")
+    cityNameEl.textContent = cityName;
   
     if (cityName) {
         getWeather(cityName);
@@ -45,7 +47,9 @@ var getWeather = function(city) {
 
 var displayWeather = function(cityData) {
     //put all the weather elements here
-    
+    console.log(cityData)
+    var tempEl = document.querySelector("#temp");
+    tempEl.innerText = cityData.main.temp + "º";
     };
 
 var getBreweries = function(city) {
@@ -72,7 +76,15 @@ var getBreweries = function(city) {
 
 var displayBreweries = function(cityData) {
     //put all the brewery list elements here
-    
-    };
+    for (var i = 0; i < 3; i++) {
+      var breweryNameEl = cityData[i].name;
+      var nameLabel = document.querySelector("#brew" + i);
+      nameLabel.innerText = breweryNameEl;
+      var typeEl = cityData[i].brewery_type;
+      var typeLabel = document.querySelector("#type" + i);
+      typeLabel.innerText = "Type of brewery: " + typeEl;
+      
+    }
+  };
 
 citySearchEl.addEventListener("submit", formSubmitHandler);
