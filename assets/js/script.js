@@ -10,7 +10,7 @@ var formSubmitHandler = function (event) {
   cityName = cityInputEl.value.trim();
   // put submitted name into #cityName field
   var cityNameEl = document.querySelector("#cityName");
-  cityNameEl.textContent = cityName;
+  cityNameEl.textContent = cityName +":";
 
   if (cityName) {
     getWeather(cityName);
@@ -52,10 +52,7 @@ var displayWeather = function (cityData) {
   //put all the weather elements here
   console.log(cityData);
   var tempEl = document.querySelector("#temp");
-  tempEl.innerText = cityData.main.temp + "º";
-  var weatherDescriptionEl = document.querySelector("#description");
-  weatherDescriptionEl.textContent = cityData.weather[0].description;
-  console.log(weatherDescriptionEl);
+  tempEl.innerText = Math.round(cityData.main.temp) + "º & " + cityData.weather[0].description;
 };
 
 var getBreweries = function (city) {
