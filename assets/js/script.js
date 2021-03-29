@@ -53,6 +53,9 @@ var displayWeather = function (cityData) {
   console.log(cityData);
   var tempEl = document.querySelector("#temp");
   tempEl.innerText = cityData.main.temp + "º";
+  var weatherDescriptionEl = document.querySelector("#description");
+  weatherDescriptionEl.textContent = cityData.weather[0].description
+  console.log(weatherDescriptionEl);
 };
 
 var getBreweries = function (city) {
@@ -80,7 +83,7 @@ var getBreweries = function (city) {
 var displayBreweries = function (breweryData) {
   var breweriesArray = createBreweriesArray(breweryData);
   //put all the brewery list elements here
-  for (var i = 0; i < 3; i++) {
+  for (var i = 0; i < 10; i++) {
     var breweryNameEl = breweriesArray[i].name;
     var nameLabel = document.querySelector("#brew" + i);
     nameLabel.innerText = breweryNameEl;
@@ -95,7 +98,7 @@ var displayBreweries = function (breweryData) {
 var createBreweriesArray = function (breweryData) {
   var breweriesArray = [];
   var i = 0;
-  while (breweriesArray.length != 3) {
+  while (breweriesArray.length != 10) {
     var breweryType = breweryData[i].brewery_type;
     if (breweryType != "planning") {
       breweriesArray.push(breweryData[i]);
