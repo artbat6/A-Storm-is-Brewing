@@ -54,7 +54,7 @@ var displayWeather = function (cityData) {
   var tempEl = document.querySelector("#temp");
   tempEl.innerText = cityData.main.temp + "º";
   var weatherDescriptionEl = document.querySelector("#description");
-  weatherDescriptionEl.textContent = cityData.weather[0].description
+  weatherDescriptionEl.textContent = cityData.weather[0].description;
   console.log(weatherDescriptionEl);
 };
 
@@ -90,6 +90,11 @@ var displayBreweries = function (breweryData) {
     var typeEl = breweriesArray[i].brewery_type;
     var typeLabel = document.querySelector("#type" + i);
     typeLabel.innerText = "Type of brewery: " + typeEl;
+    var linkEl = breweriesArray[i].website_url;
+    var linkLabel = document.querySelector("#link" + i);
+    console.log(linkLabel);
+    linkLabel.innerText = linkEl;
+    linkLabel.href = linkEl;
   }
 };
 
