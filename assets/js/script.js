@@ -1,5 +1,6 @@
 var cityInputEl = document.querySelector("#searchInput");
 var citySearchEl = document.querySelector("#citySearch");
+var resultsContainer = document.querySelector(".resultsContainer");
 var cityName = {};
 
 var formSubmitHandler = function (event) {
@@ -10,7 +11,7 @@ var formSubmitHandler = function (event) {
   cityName = cityInputEl.value.trim();
   // put submitted name into #cityName field
   var cityNameEl = document.querySelector("#cityName");
-  cityNameEl.textContent = cityName;
+  cityNameEl.textContent = cityName +":";
 
   if (cityName) {
     getWeather(cityName);
@@ -52,10 +53,7 @@ var displayWeather = function (cityData) {
   //put all the weather elements here
   console.log(cityData);
   var tempEl = document.querySelector("#temp");
-  tempEl.innerText = cityData.main.temp + "º";
-  var weatherDescriptionEl = document.querySelector("#description");
-  weatherDescriptionEl.textContent = cityData.weather[0].description;
-  console.log(weatherDescriptionEl);
+  tempEl.innerText = Math.round(cityData.main.temp) + "º & " + cityData.weather[0].description;
 };
 
 var getBreweries = function (city) {
@@ -82,19 +80,48 @@ var getBreweries = function (city) {
 
 var displayBreweries = function (breweryData) {
   var breweriesArray = createBreweriesArray(breweryData);
+
+  //clear contents of container each search 
+  resultsContainer.innerHTML = "";
+
   //put all the brewery list elements here
   for (var i = 0; i < 10; i++) {
-    var breweryNameEl = breweriesArray[i].name;
-    var nameLabel = document.querySelector("#brew" + i);
-    nameLabel.innerText = breweryNameEl;
-    var typeEl = breweriesArray[i].brewery_type;
-    var typeLabel = document.querySelector("#type" + i);
-    typeLabel.innerText = "Type of brewery: " + typeEl;
-    var linkEl = breweriesArray[i].website_url;
-    var linkLabel = document.querySelector("#link" + i);
-    console.log(linkLabel);
-    linkLabel.innerText = linkEl;
-    linkLabel.href = linkEl;
+    // create card element to display brewery information
+    var breweryContainer = document.createElement("div");
+    breweryContainer.classList = "col s12 card blue-grey darken-1 card-content white-text cardInfo";
+
+    //create element to hold brewery name
+    var nameEl = document.createElement("p");
+    nameEl.classList = "card-title"
+    nameEl.textContent = breweriesArray[i].name;
+
+    //create element to hold brewery address
+    var addressEl = document.createElement("p");
+    addressEl.textContent = breweriesArray[i].street + ", " + breweriesArray[i].city + ", " + breweriesArray[i].state + ", " + breweriesArray[i].postal_code.slice(0,5);
+
+    //create element to hold brewery link
+    var linkEl = document.createElement("p");
+    linkEl.innerHTML = '<a href="' + breweriesArray[i].website_url + '" target="_blank">' + breweriesArray[i].website_url + '</a>' 
+
+    //append name, address, and link to container
+    breweryContainer.appendChild(nameEl);
+    breweryContainer.appendChild(addressEl);
+    breweryContainer.appendChild(linkEl);
+
+    //append brewery container to results container
+    resultsContainer.appendChild(breweryContainer);
+
+    // var breweryNameEl = breweriesArray[i].name;
+    // var nameLabel = document.querySelector("#brew" + i);
+    // nameLabel.innerText = breweryNameEl;
+    // var typeEl = breweriesArray[i].brewery_type;
+    // var typeLabel = document.querySelector("#type"+ i);
+    // typeLabel.innerText = "Type of brewery: " + typeEl;
+    // var linkEl = breweriesArray[i].website_url;
+    // var linkLabel = document.querySelector("#link"+ i);
+    // console.log(linkLabel);
+    // linkLabel.innerText = linkEl;
+    // linkLabel.href = linkEl;
   }
 };
 
@@ -103,6 +130,7 @@ var displayBreweries = function (breweryData) {
 var createBreweriesArray = function (breweryData) {
   var breweriesArray = [];
   var i = 0;
+  
   while (breweriesArray.length != 10) {
     var breweryType = breweryData[i].brewery_type;
     if (breweryType != "planning") {
