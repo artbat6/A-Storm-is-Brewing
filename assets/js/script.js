@@ -2,25 +2,47 @@ var cityInputEl = document.querySelector("#searchInput");
 var citySearchEl = document.querySelector("#citySearch");
 var resultsContainer = document.querySelector(".resultsContainer");
 var cityName = {};
+var selectEl = document.getElementById("selectForm")
+var options = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming']
+
+$(document).ready(function(){
+  $('select').formSelect();
+});
+
+var populateOptions = function() {
+  for (var i=0; i<options.length;i++) {
+    var optionEl = document.createElement("option");
+    optionEl.textContent=options[i];
+    optionEl.value=options[i];
+    selectEl.appendChild(optionEl);
+  }
+};
+
+populateOptions();
 
 var formSubmitHandler = function (event) {
   // prevent page from refreshing
   event.preventDefault();
 
-  // get value from input element
+  //get state value from select element
+  stateName = selectEl.value;
+  console.log(stateName);
+
+  // get city value from input element
   cityName = cityInputEl.value.trim();
   // put submitted name into #cityName field
   var cityNameEl = document.querySelector("#cityName");
   cityNameEl.textContent = cityName +":";
 
-  if (cityName) {
+  if (cityName && stateName) {
     getWeather(cityName);
-    getBreweries(cityName);
+    getBreweries(cityName, stateName);
 
     // clear old content
     cityInputEl.value = "";
+
   } else {
-    alert("Please enter a valid city");
+    alert("Please enter a valid city and state!");
   }
 };
 
@@ -56,8 +78,8 @@ var displayWeather = function (cityData) {
   tempEl.innerText = Math.round(cityData.main.temp) + "º & " + cityData.weather[0].description;
 };
 
-var getBreweries = function (city) {
-  var breweryApiUrl = "https://api.openbrewerydb.org/breweries?by_city=" + city;
+var getBreweries = function (city, state) {
+  var breweryApiUrl = "https://api.openbrewerydb.org/breweries?by_city=" + city + "&by_state=" + state;
 
   // make a get request to url
   fetch(breweryApiUrl)
@@ -110,23 +132,11 @@ var displayBreweries = function (breweryData) {
 
     //append brewery container to results container
     resultsContainer.appendChild(breweryContainer);
-
-    // var breweryNameEl = breweriesArray[i].name;
-    // var nameLabel = document.querySelector("#brew" + i);
-    // nameLabel.innerText = breweryNameEl;
-    // var typeEl = breweriesArray[i].brewery_type;
-    // var typeLabel = document.querySelector("#type"+ i);
-    // typeLabel.innerText = "Type of brewery: " + typeEl;
-    // var linkEl = breweriesArray[i].website_url;
-    // var linkLabel = document.querySelector("#link"+ i);
-    // console.log(linkLabel);
-    // linkLabel.innerText = linkEl;
-    // linkLabel.href = linkEl;
   }
 };
 
 // the function below takes the data from the brewery api
-// and returns the top 3 breweries with type != "planning"
+// and returns the top 10 breweries with type != "planning"
 var createBreweriesArray = function (breweryData) {
   var breweriesArray = [];
   var i = 0;
