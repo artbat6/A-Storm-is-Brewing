@@ -146,7 +146,6 @@ citySearchEl.addEventListener("submit", formSubmitHandler);
 //Sets up history to be loaded at the start of the page
 function initializeHistory(){
   for(var i = 0; i < localStorage.length; i++){
-    console.log(localStorage.getItem("searchInput" + i));
     document.getElementById("history" + i).innerHTML = localStorage.getItem("searchInput" + i);
   }
 }
@@ -160,13 +159,14 @@ function storeHistory(){
     //console.log(localStorage.getItem("cityHis" + i));
     document.getElementById("history" + i).innerHTML = localStorage.getItem("searchInput" + i);
     storedHistory++
-    //console.log("stored History "+storedHistory);
-    //console.log("local Storage "+localStorage.length);
   }
 }
 
-function loadHistory(){
-    console.log("Test");
+function loadHistory(clicked_id){  
+  console.log(document.getElementById(clicked_id).innerHTML);
+  getWeather(document.getElementById(clicked_id).innerHTML);
+  getBreweries(document.getElementById(clicked_id).innerHTML);
+  document.getElementById("cityName").innerHTML = document.getElementById(clicked_id).innerHTML;
 }
 
 window.onload = initializeHistory();
