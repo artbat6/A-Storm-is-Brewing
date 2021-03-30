@@ -17,7 +17,7 @@
         <h1>Search City</h1>
         <div class= 'col s12 m3 l3'>
         <form id="citySearch"><input id=searchInput type="text" class="searchInput" placeholder="City">
-        <button class="btn waves-effect waves-light" type="submit" class="searchBtn" name="action">Submit
+        <button class="btn waves-effect waves-light" type="submit" class="searchBtn" name="action" onclick ="storeHistory()">Submit
         </button>
         </form>
         </div>
@@ -31,9 +31,24 @@
     </div>
     <div class="row">
         <div class="col s3 historyContainer"> 
-            <div class="historyCard">
-                <h1>Search History</h1>
-            </div>
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                  <span class="card-title">Search History</span>
+                    <div>
+                        <h6 onclick = "loadHistory()" id = history9></h6>
+                        <h6 onclick = "" id = history8></h6>
+                        <h6 onclick = "" id = history7></h6>
+                        <h6 onclick = "" id = history6></h6>
+                        <h6 id = history5></h6>
+                        <h6 id = history4></h6>
+                        <h6 id = history3></h6>
+                        <h6 id = history2></h6>
+                        <h6 id = history1></h6>
+                        <h6 id = history0></h6>
+                        <h6 id = history></h6>
+                    </div>
+                </div>
+              </div>
         </div>
         <div class="col s9 resultsContainer">
             <!-- <div class="col s12">    

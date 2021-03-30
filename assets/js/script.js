@@ -142,3 +142,31 @@ var createBreweriesArray = function (breweryData) {
 };
 
 citySearchEl.addEventListener("submit", formSubmitHandler);
+
+//Sets up history to be loaded at the start of the page
+function initializeHistory(){
+  for(var i = 0; i < localStorage.length; i++){
+    console.log(localStorage.getItem("searchInput" + i));
+    document.getElementById("history" + i).innerHTML = localStorage.getItem("searchInput" + i);
+  }
+}
+
+//Stores and displays history
+function storeHistory(){
+  var storedHistory = localStorage.length;
+  var inputCity = document.getElementById("searchInput");
+  localStorage.setItem("searchInput" + storedHistory, inputCity.value);
+  for(var i = 0; i < localStorage.length; i++){
+    //console.log(localStorage.getItem("cityHis" + i));
+    document.getElementById("history" + i).innerHTML = localStorage.getItem("searchInput" + i);
+    storedHistory++
+    //console.log("stored History "+storedHistory);
+    //console.log("local Storage "+localStorage.length);
+  }
+}
+
+function loadHistory(){
+    console.log("Test");
+}
+
+window.onload = initializeHistory();
