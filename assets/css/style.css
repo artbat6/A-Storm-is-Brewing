@@ -3,6 +3,9 @@ h1 {
     margin: 10px;
 }
 
+h6:hover {
+    opacity: 0.6;
+}
 
 header {
     width: 100%;
