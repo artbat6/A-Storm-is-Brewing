@@ -14,12 +14,20 @@
         <h1>A Storm is <span class="brewSpan">Brew</span>ing</h1>
     </header>
     <div class="row">
-        <h1>Search City</h1>
-        <div class= 'col s12 m3 l3'>
-        <form id="citySearch"><input id=searchInput type="text" class="searchInput" placeholder="City">
-        <button class="btn waves-effect waves-light" type="submit" class="searchBtn" name="action" onclick ="storeHistory()">Submit
-        </button>
-        </form>
+        <div class="search forms  col s12 m3 l3">
+            <h1>Select a State</h1>
+            <div class="input-field">
+                <select id="selectForm">
+                  <option value="" disabled selected></option>
+                </select>
+              </div>
+            <h1>Search for a City</h1>
+            <div>
+                <form id="citySearch"><input id=searchInput type="text" class="searchInput" placeholder="City">
+                <button class="btn waves-effect waves-light" type="submit" class="searchBtn" name="action" onclick ="storeHistory()">Submit
+                </button>
+                </form>
+            </div>
         </div>
     
         <div class="col s12 m8 l8">
