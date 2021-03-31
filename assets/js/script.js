@@ -176,7 +176,9 @@ function initializeHistory(){
 function storeHistory(){
   var storedHistory = localStorage.length;
   var inputCity = document.getElementById("searchInput");
-  localStorage.setItem("searchInput" + storedHistory, inputCity.value);
+  var location = [inputCity.value, selectEl.value];
+  localStorage.setItem("searchInput" + storedHistory, location);
+
   for(var i = 0; i < localStorage.length; i++){
     //console.log(localStorage.getItem("cityHis" + i));
     document.getElementById("history" + i).innerHTML = localStorage.getItem("searchInput" + i);
@@ -184,10 +186,12 @@ function storeHistory(){
   }
 }
 
-function loadHistory(clicked_id){  
+function loadHistory(clicked_id){
+  console.log({clicked_id});
+  var location = localStorage.getItem("searchInput" + clicked_id[clicked_id.length - 1]).split(",");
   console.log(document.getElementById(clicked_id).innerHTML);
   getWeather(document.getElementById(clicked_id).innerHTML);
-  getBreweries(document.getElementById(clicked_id).innerHTML);
+  getBreweries(location[0], location[1]);
   document.getElementById("cityName").innerHTML = document.getElementById(clicked_id).innerHTML;
 }
 
