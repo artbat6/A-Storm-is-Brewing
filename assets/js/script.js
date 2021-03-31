@@ -78,8 +78,8 @@ var displayWeather = function (cityData) {
   tempEl.innerText = Math.round(cityData.main.temp) + "º & " + cityData.weather[0].description;
 };
 
-var getBreweries = function (city) {
-  var breweryApiUrl = "https://api.openbrewerydb.org/breweries?by_city=" + city;
+var getBreweries = function (city, state) {
+  var breweryApiUrl = "https://api.openbrewerydb.org/breweries?by_city=" + city + "&by_state=" + state;
 
   // make a get request to url
   fetch(breweryApiUrl)
