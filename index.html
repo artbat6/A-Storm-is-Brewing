@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Francois+One&family=Open+Sans:wght@300;600&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>A Storm is Brewing</title>
 </head>
@@ -15,13 +17,13 @@
     </header>
     <div class="row">
         <div class="search forms  col s12 m3 l3">
-            <h1>Select a State</h1>
+            <h1 class="search-header">Select a State</h1>
             <div class="input-field">
                 <select id="selectForm">
                   <option value="" disabled selected></option>
                 </select>
               </div>
-            <h1>Search for a City</h1>
+            <h1 class="search-header">Search for a City</h1>
             <div>
                 <form id="citySearch"><input id=searchInput type="text" class="searchInput" placeholder="City">
                 <button class="btn waves-effect waves-light" type="submit" class="searchBtn" name="action" onclick ="storeHistory()">Submit
@@ -41,7 +43,7 @@
         <div class="col s3 historyContainer"> 
             <div class="card blue-grey darken-1">
                 <div class="card-content white-text">
-                  <span class="card-title">Search History</span>
+                  <span class="card-title" class="search-header">Search History</span>
                     <div>
                         <h6 id = history9 onclick = "loadHistory(this.id)"></h6>
                         <h6 id = history8 onclick = "loadHistory(this.id)"></h6>
@@ -59,116 +61,6 @@
               </div>
         </div>
         <div class="col s9 resultsContainer">
-            <!-- <div class="col s12">    
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text" class="cardInfo">
-                        <span class="card-title" id="brew0">Brewery Name</span>
-                        <p id="type0">Description of Brewery?</p>
-                    </div>
-                        <div class="card-action">
-                        <a id = "link0" href="#" target="_blank">Brewery Link?</a>
-                        </div>
-                </div>
-            </div>
-            <div class="col s12">    
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text" class="cardInfo">
-                        <span class="card-title" id="brew1">Brewery Name</span>
-                        <p id="type1">Description of Brewery?</p>
-                    </div>
-                        <div class="card-action">
-                        <a id = "link1" href="#" target="_blank">Brewery Link?</a>
-                        </div>
-                </div>
-            </div>
-            <div class="col s12">    
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text" class="cardInfo">
-                        <span class="card-title" id="brew2">Brewery Name</span>
-                        <p id="type2">Description of Brewery?</p>
-                    </div>
-                        <div class="card-action">
-                        <a id = "link2" href="#" target="_blank">Brewery Link?</a>
-                        </div>
-                </div>
-            </div>
-            <div class="col s12">    
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text" class="cardInfo">
-                        <span class="card-title" id="brew3">Brewery Name</span>
-                        <p id="type3">Description of Brewery?</p>
-                    </div>
-                        <div class="card-action">
-                        <a id = "link3" href="#" target="_blank">Brewery Link?</a>
-                        </div>
-                </div>
-            </div>
-            <div class="col s12">    
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text" class="cardInfo">
-                        <span class="card-title" id="brew4">Brewery Name</span>
-                        <p id="type4">Description of Brewery?</p>
-                    </div>
-                        <div class="card-action">
-                        <a id = "link4" href="#" target="_blank">Brewery Link?</a>
-                        </div>
-                </div>
-            </div>
-            <div class="col s12">    
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text" class="cardInfo">
-                        <span class="card-title" id="brew5">Brewery Name</span>
-                        <p id="type5">Description of Brewery?</p>
-                    </div>
-                        <div class="card-action">
-                        <a id = "link5" href="#" target="_blank">Brewery Link?</a>
-                        </div>
-                </div>
-            </div>
-            <div class="col s12">    
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text" class="cardInfo">
-                        <span class="card-title" id="brew6">Brewery Name</span>
-                        <p id="type6">Description of Brewery?</p>
-                    </div>
-                        <div class="card-action">
-                        <a id = "link6" href="#" target="_blank">Brewery Link?</a>
-                        </div>
-                </div>
-            </div>
-            <div class="col s12">    
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text" class="cardInfo">
-                        <span class="card-title" id="brew7">Brewery Name</span>
-                        <p id="type7">Description of Brewery?</p>
-                    </div>
-                        <div class="card-action">
-                        <a id = "link7" href="#" target="_blank">Brewery Link?</a>
-                        </div>
-                </div>
-            </div>
-            <div class="col s12">    
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text" class="cardInfo">
-                        <span class="card-title" id="brew8">Brewery Name</span>
-                        <p id="type8">Description of Brewery?</p>
-                    </div>
-                        <div class="card-action">
-                        <a id = "link8" href="#" target="_blank">Brewery Link?</a>
-                        </div>
-                </div>
-            </div>
-            <div class="col s12">    
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text" class="cardInfo">
-                        <span class="card-title" id="brew9">Brewery Name</span>
-                        <p id="type9">Description of Brewery?</p>
-                    </div>
-                        <div class="card-action">
-                        <a id = "link9" href="#" target="_blank">Brewery Link?</a>
-                        </div>
-                </div>
-            </div> -->
         </div>
     </div>
 

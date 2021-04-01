@@ -26,10 +26,10 @@ var formSubmitHandler = function (event) {
 
   //get state value from select element
   stateName = selectEl.value;
-  console.log(stateName);
 
   // get city value from input element
   cityName = cityInputEl.value.trim();
+
   // put submitted name into #cityName field
   var cityNameEl = document.querySelector("#cityName");
   cityNameEl.textContent = cityName +":";
@@ -57,9 +57,7 @@ var getWeather = function (city) {
     .then(function (response) {
       // request was successful
       if (response.ok) {
-        console.log(response);
         response.json().then(function (weatherData) {
-          console.log(weatherData);
           displayWeather(weatherData);
         });
       } else {
@@ -73,7 +71,6 @@ var getWeather = function (city) {
 
 var displayWeather = function (cityData) {
   //put all the weather elements here
-  console.log(cityData);
   var tempEl = document.querySelector("#temp");
   tempEl.innerText = Math.round(cityData.main.temp) + "º & " + cityData.weather[0].description;
 };
@@ -86,9 +83,7 @@ var getBreweries = function (city, state) {
     .then(function (response) {
       // request was successful
       if (response.ok) {
-        console.log(response);
         response.json().then(function (breweryData) {
-          console.log(breweryData);
           displayBreweries(breweryData);
         });
       } else {
@@ -132,23 +127,11 @@ var displayBreweries = function (breweryData) {
 
     //append brewery container to results container
     resultsContainer.appendChild(breweryContainer);
-
-    // var breweryNameEl = breweriesArray[i].name;
-    // var nameLabel = document.querySelector("#brew" + i);
-    // nameLabel.innerText = breweryNameEl;
-    // var typeEl = breweriesArray[i].brewery_type;
-    // var typeLabel = document.querySelector("#type"+ i);
-    // typeLabel.innerText = "Type of brewery: " + typeEl;
-    // var linkEl = breweriesArray[i].website_url;
-    // var linkLabel = document.querySelector("#link"+ i);
-    // console.log(linkLabel);
-    // linkLabel.innerText = linkEl;
-    // linkLabel.href = linkEl;
   }
 };
 
 // the function below takes the data from the brewery api
-// and returns the top 3 breweries with type != "planning"
+// and returns the top 10 breweries with type != "planning"
 var createBreweriesArray = function (breweryData) {
   var breweriesArray = [];
   var i = 0;
@@ -187,9 +170,7 @@ function storeHistory(){
 }
 
 function loadHistory(clicked_id){
-  console.log({clicked_id});
   var location = localStorage.getItem("searchInput" + clicked_id[clicked_id.length - 1]).split(",");
-  console.log(document.getElementById(clicked_id).innerHTML);
   getWeather(document.getElementById(clicked_id).innerHTML);
   getBreweries(location[0], location[1]);
   document.getElementById("cityName").innerHTML = document.getElementById(clicked_id).innerHTML;

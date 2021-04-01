@@ -1,3 +1,7 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
 h1 {
     font-size: 1.5em;
     margin: 10px;
@@ -13,7 +17,6 @@ header {
     color: white;
     margin-top: 0;
     text-align: center;
-    font-size: x-large;
     background-color: #2f3640;
 }
 
@@ -21,6 +24,12 @@ header {
 header h1 {
     margin: 0;
     padding-top: 20px;
+    font-size: 60px;
+    font-family: 'Francois One', sans-serif;
+}
+
+.search-header{
+    font-weight: 600;
 }
 
 input[type=text]:not(.browser-default) {
@@ -31,10 +40,19 @@ input[type=text]:not(.browser-default) {
     border-color:#2f3640
 }
 
+.forecast {
+    padding: 40px;
+}
+
 h5 {
     font-size: 2.5rem;
 }
 
-a, .brewSpan{
+a {
     color: #ffb300;
+}
+
+.brewSpan {
+    color: #ffb300;
+    font-family: 'Francois One', sans-serif;
 }
