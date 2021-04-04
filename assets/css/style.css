@@ -56,3 +56,46 @@ a {
     color: #ffb300;
     font-family: 'Francois One', sans-serif;
 }
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+@media screen and (max-width: 980px) {
+
+    header {
+      padding-bottom: 0;
+      text-align: left;
+      font-size: 5px;
+      justify-content: flex-start; 
+      height: 60px;
+    }
+
+    header h1 {
+        font-size: 30px;
+        padding: 5px;
+        margin: auto;
+        width:fit-content
+    }
+    
+    .search-header{
+        width: auto;
+        font-size: 15px;
+        margin: 10px;
+    }
+    
+    input[type=text]:not(.browser-default) {
+        font-size: 15px;
+        padding: 0;
+        border: 1px solid #cecfd2;
+        border-radius: 5px;
+        border-color: #2f3640;
+    }
+
+    .row .col.s3 {
+        width: fit-content;
+        margin-left: auto;
+        left: auto;
+        right: auto;
+    }
+
+    .forecast {
+        padding: 0px;
+    }
+};
