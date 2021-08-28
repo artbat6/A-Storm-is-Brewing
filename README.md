@@ -6,7 +6,7 @@ This is a brewery finder that lists breweries and weather for a particular city 
 
 Follow this link and begin searching for breweries in different cities.
 
-https://chrispruiz.github.io/Project/
+https://artbat6.github.io/A-Storm-is-Brewing/
 
 
 ## Authors
